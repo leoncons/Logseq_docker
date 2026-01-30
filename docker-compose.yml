@@ -1,0 +1,6 @@
+services:
+  logseq:
+    image: ghcr.io/logseq/logseq-webapp:latest
+    restart: unless-stopped
+    volumes:
+      - graphs:/data  # Coolify resolves to managed volume
