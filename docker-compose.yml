@@ -1,6 +1,11 @@
 services:
   logseq:
-    image: ghcr.io/logseq/logseq-webapp:latest
+    build: .  # Builds your Dockerfile
+    # OR image: ghcr.io/logseq/logseq-webapp:latest  # If skipping custom
     restart: unless-stopped
     volumes:
-      - graphs:/data  # Coolify resolves to managed volume
+      - graphs:/data
+    labels:
+      - "traefik.enable=true"
+volumes:
+  graphs:
